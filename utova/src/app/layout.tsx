@@ -1,6 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import Providers from "./providers/SessionProvider";
 
 export const metadata: Metadata = {
   title: "Utova",
@@ -21,7 +22,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-black min-h-screen flex items-center justify-center">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

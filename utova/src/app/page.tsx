@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ export default function Home() {
         className="mb-1"
         style={{ fontFamily: "'MuseoModerno', sans-serif", fontSize: "8rem" }}
       >
-        Utova
+        Utöva
       </h1>
       <h4
         className="mb-8"
@@ -76,7 +77,7 @@ export default function Home() {
           "
         />
 
-        {/* Login Button */}
+        {/* Login Button (Email/Password) */}
         <button
           type="submit"
           className="
@@ -98,6 +99,31 @@ export default function Home() {
           Login
         </button>
       </form>
+
+      {/* Login with Google Button (outside the <form>) */}
+      <div className="flex flex-col items-center mt-4">
+        <button
+          type="button"
+          onClick={() => signIn("google")}
+          className="
+            w-64
+            border
+            border-black
+            bg-white
+            text-black
+            px-4
+            py-2
+            font-semibold
+            rounded
+            transition
+            duration-200
+            hover:bg-black
+            hover:text-white
+          "
+        >
+          Login with Google
+        </button>
+      </div>
 
       {/* Bottom Register Link */}
       <p className="mt-4">
